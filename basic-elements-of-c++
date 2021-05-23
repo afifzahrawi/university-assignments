@@ -1,0 +1,16 @@
+Q1. (Average sales in grams) Assume a vendor sells 6 kilograms of grocery in 15 minutes and 30 minutes 
+and 30 seconds. Write a program that displays the average sale in grams per hour (Note that 1 kilogram
+is 1000 grams).
+
+#include <iostream>
+using namespace std;
+const double WEIGHTKG = 6, TIMEHOUR = 15, TIMEMINUTE = 30, TIMESECOND = 30;
+int main()
+{
+	double weightGram, time, averageSale;        //time is the sum of TIMEHOUR, TIMEMINUTE and TIMESECOND in hour
+	weightGram = WEIGHTKG * 1000;
+	time = TIMEHOUR + (TIMEMINUTE/60) + (TIMESECOND/3600);
+	averageSale = weightGram/time;
+	cout << "Average sale is " << averageSale << " grams per hour" << endl;
+	return 0;
+}
