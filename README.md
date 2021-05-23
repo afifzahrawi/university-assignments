@@ -1,2 +1,2 @@
-# university-assignments
-a collection of my assignment on C++
+# University Assignments
+## A collection of my assignments on C++ language
