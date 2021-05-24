@@ -1,0 +1,101 @@
+Q1. (Check the speed) Write a program that prompts the user to enter the speed of a vehicle. If speed is less than 
+20, display too slow; if speed is greater than 80, display too fast; otherwise, display just right.
+
+#include <iostream> 
+using namespace std; 
+int main() 
+{
+	float speed;
+	cout << "Enter the speed of a vehicle: ";
+	cin >> speed;
+	if (speed < 20)
+	    cout << "Too slow" << endl;
+	else if (speed > 80)
+	    cout << "Too fast" << endl;  
+	else
+	    cout << "Just right" << endl;    
+	return 0;
+}
+
+
+
+Q2. (Find future dates) Write a program that prompts the user to enter an integer for today’s day of the week 
+(Sunday is 0, Monday is 1, . . . , and Saturday is 6). Also, prompt the user to enter the number of days after today
+for a future day and display the future day of the week.
+
+#include <iostream> 
+using namespace std; 
+int main() 
+{
+	int dayNum, elapsedDay, futureDay, multiplier;
+	cout << "Enter today's day: ";
+	cin >> dayNum;
+	cout << "Enter the number of days elapsed since today: ";
+	cin >> elapsedDay;
+	
+	multiplier = elapsedDay / 7;           //multiplier act as a counter to know how many week passed since today’s day
+	
+	if(elapsedDay > 6)
+	      elapsedDay = elapsedDay - (7 * multiplier);
+	
+	futureDay = dayNum + elapsedDay;
+	
+	switch(dayNum)
+	{
+	    case 0: cout << "Today is Sunday "; break;
+	    case 1: cout << "Today is Monday "; break;
+	    case 2: cout << "Today is Tuesday "; break;
+	    case 3: cout << "Today is Wednesday "; break;
+	    case 4: cout << "Today is Thursday "; break;
+	    case 5: cout << "Today is Friday "; break;
+	    case 6: cout << "Today is Saturday "; break;
+	}  
+	switch(futureDay)
+	{
+	    case 0: cout << "and the future day is Sunday" << endl; break;
+	    case 1: cout << "and the future day is Monday" << endl; break;
+	    case 2: cout << "and the future day is Tuesday" << endl; break;
+	    case 3: cout << "and the future day is Wednesday" << endl; break;
+	    case 4: cout << "and the future day is Thursday" << endl; break;
+	    case 5: cout << "and the future day is Friday" << endl; break;
+	    case 6: cout << "and the future day is Saturday" << endl; break;
+	} 
+	return 0;
+}
+
+
+
+Q3. (Use the && and || operators) Write a program that prompts the user to enter an integer and determines 
+whether it is divisible by 5 and 6, whether it is divisible by 5 or 6, and whether it is divisible by 5 or 6, but not
+both.
+
+#include <iostream> 
+using namespace std; 
+int main() 
+{
+	int num;
+	cout << "Enter an integer: ";
+	cin >> num;
+	
+	cout << "Is " << num << " divisible by 5 and 6?";
+	if (num % 5 == 0 && num % 6 == 0)
+	    cout << " true" << endl;    
+	else
+	    cout << " false" << endl;
+	    
+	cout << "Is " << num << " divisible by 5 or 6?";
+	if (num % 5 == 0 || num % 6 == 0)
+	    cout << " true" << endl;    
+	else
+	    cout << " false" << endl;
+	
+	cout << "Is " << num << " divisible by 5 or 6, but not both?";	
+	if (num % 5 == 0 && num % 6 == 0)
+	    cout << " false" << endl;    
+	else if (num % 5 == 0 || num % 6 == 0)
+	    cout << " true" << endl;
+	else
+	    cout << " false" << endl;
+	    
+	return 0;
+}
