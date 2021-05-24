@@ -1,0 +1,138 @@
+Q1. (Area and perimeter of an equilateral triangle) Write a program that displays the area and
+perimeter of an equilateral triangle that has its three sides as 9.2, using the following formula:
+area = 1.732 x (side)^2/4
+perimeter = 3 x side1
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+const double SIDE = 9.2;
+int main()
+{
+	double area, perimeter;
+	area = 1.732 * (pow(SIDE, 2)/4);
+	perimeter = 3 * SIDE;
+	cout << "Area of the equilateral triangle is " << area << endl;
+	cout << "Perimeter of the equilateral triangle is " << perimeter << endl;
+	return 0;
+}
+
+
+
+Q2. (Average sales in grams) Assume a vendor sells 6 kilograms of grocery in 15 minutes and 30 minutes 
+and 30 seconds. Write a program that displays the average sale in grams per hour (Note that 1 kilogram
+is 1000 grams).
+
+#include <iostream>
+using namespace std;
+const double WEIGHTKG = 6, TIMEHOUR = 15, TIMEMINUTE = 30, TIMESECOND = 30;
+int main()
+{
+	double weightGram, time, averageSale;        //time is the sum of TIMEHOUR, TIMEMINUTE and TIMESECOND in hour
+	weightGram = WEIGHTKG * 1000;
+	time = TIMEHOUR + (TIMEMINUTE/60) + (TIMESECOND/3600);
+	averageSale = weightGram/time;
+	cout << "Average sale is " << averageSale << " grams per hour" << endl;
+	return 0;
+}
+
+
+
+Q3. (Find the number of years) Write a program that prompts the user to enter the minutes (e.g., 1 
+billion), and displays the number of years and days for the minutes. For simplicity, assume a year has
+365 days.
+
+#include <iostream>
+using namespace std;
+int main()
+{
+	int minutes, years, days;
+	cout << "Enter the number of minutes: ";
+	cin >> minutes;
+	years = minutes/525600;
+	days = (minutes % 525600) / 1440;
+	cout << minutes << " minutes is approximately " << years << " years and " << days << " days" << endl;
+	return 0;
+}
+
+
+
+Q4. (Financial application: compound value) Suppose you save $100 each month into a savings 
+account with the annual interest rate 5%. Thus, the monthly interest rate is 0.05/12 = 0.00417. 
+After the first month, the value in the account becomes 
+100 * (1 + 0.00417) = 100.417 
+After the second month, the value in the account becomes 
+(100 + 100.417) * (1 + 0.00417) = 201.252 
+After the third month, the value in the account becomes 
+(100 + 201.252) * (1 + 0.00417) = 302.507 
+and so on. 
+Write a program that prompts the user to enter a monthly saving amount and displays the account 
+value after the sixth month.
+
+#include <iostream>
+using namespace std;
+int main ()
+{
+	float monthlysaving, accvalue;
+	cout << "Enter the monthly saving amount: ";
+	cin >> monthlysaving;
+	accvalue = monthlysaving;
+	accvalue = monthlysaving * (1 + 0.05/12);
+	accvalue = (accvalue + monthlysaving) * (1 + 0.05/12);
+	accvalue = (accvalue + monthlysaving) * (1 + 0.05/12);
+	accvalue = (accvalue + monthlysaving) * (1 + 0.05/12);
+	accvalue = (accvalue + monthlysaving) * (1 + 0.05/12);
+	accvalue = (accvalue + monthlysaving) * (1 + 0.05/12);
+	cout << "After the sixth month, the account value is $" << accvalue << endl;
+	return 0;
+}
+
+
+
+Q5. (Cost of driving) Write a program that prompts the user to enter the distance to drive, the fuel 
+efficiency of the car in miles per gallon, and the price per gallon, and displays the cost of the trip.
+
+#include <iostream>
+using namespace std;
+int main()
+{
+	double distance, miles, price, cost;
+	cout << "Enter the driving distance: ";
+	cin >> distance;
+	cout << "Enter miles per gallon: ";
+	cin >> miles;
+	cout << "Enter price per gallon: ";
+	cin >> price;
+	cost = (distance * price) / miles;
+	cout << "The cost of driving is $" << cost << endl;
+	return 0;
+}
+
+
+
+Q6. A milk carton can hold 3.78 liters of milk. Each morning, a dairy farm ships cartons of milk to a local 
+grocery store. The cost of producing one liter of milk is $0.38, and the profit of each carton of milk is 
+$0.27. Write a program that does the following: 
+a. Prompts the user to enter the total amount of milk produced in the morning. 
+b. Outputs the number of milk cartons needed to hold milk. (Round your answer to the nearest 
+integer.) 
+c. Outputs the cost of producing milk. 
+d. Outputs the profit for producing milk.
+
+#include <iostream>
+using namespace std;
+const double VOLUMEPERCARTON = 3.78, COSTPERLITRE = 0.38, PROFITPERCARTON = 0.27;
+int main()
+{
+	double milkVolume, cost, profit;
+	int totalMilkCartons;
+	cout << "Enter, in litres, the total quantity of milk produced: ";
+	cin >> milkVolume;
+	totalMilkCartons = milkVolume/VOLUMEPERCARTON;
+	cost = milkVolume * COSTPERLITRE;
+	profit = totalMilkCartons * PROFITPERCARTON;
+	cout << "The number of milk cartons needed to hold milk: " << totalMilkCartons << endl;
+	cout << "The cost of producing milk: $" << cost << endl;
+	cout << "Profit: $" << profit << endl;
+	return 0;
+}
