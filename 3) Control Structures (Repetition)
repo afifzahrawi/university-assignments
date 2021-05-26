@@ -1,0 +1,97 @@
+Q1. (Financial application: compute future apartment rent) Suppose that the rent for an apartment is $1000 this 
+year and increases 3% every year. Write a program that computes the rent in five years and the total rent for 
+one year starting five years from now.
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+const float RENT = 1000;
+const float INTEREST = 0.03;
+int main()
+{
+	int year;
+	float rentIncrement, currentRent, totalRent;
+	totalRent = RENT;
+	cout << fixed << setprecision(2) << "Total rent in 1 year is $" << totalRent << endl;
+	for (year = 2; year <= 5; year++)
+	{
+		rentIncrement = RENT * INTEREST;
+		currentRent = RENT + rentIncrement;
+		totalRent = totalRent + currentRent;
+		cout << "Total rent in " << year << " year is $" << totalRent << endl;
+	}
+	return 0;
+}
+
+
+
+Q2. (Find the lowest price) Write a program that prompts the user to enter the number of items and each 
+item’s name and price, and finally displays the name and price of the item with the lowest price.
+
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std; 
+int main() 
+{
+	string nameItem, lowestItem;
+	int numItems, count;
+	float price, lowestPrice;
+	cout << "Enter the number of items: ";
+	cin >> numItems;
+	cout << endl;
+	for (count = 1; count <= numItems; count++)
+	{
+		cout << "Item's name: ";
+		getline(cin, nameItem);
+		getline(cin, nameItem);
+		cout << "Item's price: RM";
+		cin >> price;
+		cout << endl;
+		if (count == 1)
+		    lowestPrice = price;
+		if (price < lowestPrice)
+		{
+		    lowestPrice = price;
+		    lowestItem = nameItem;
+	               }
+	}
+	cout << fixed << setprecision(2);
+	cout << "The item with the lowest price is " << lowestItem << " with price RM" << lowestPrice << endl;
+	return 0;
+}
+
+
+
+Q3. (Occurrence of max numbers) Write a program that reads integers, finds the largest of them, and counts its 
+occurrences. Assume that the input ends with number 0. Suppose that you entered 3 5 2 5 5 5 0; the program 
+finds that the largest is 5 and the occurrence count for 5 is 4. 
+(Hint: Maintain two variables, max and count. max stores the current max number, and count stores its 
+occurrences. Initially, assign the first number to max and 1 to count. Compare each subsequent number with 
+max. If the number is greater than max, assign it to max and reset count to 1. If the number is equal to max, 
+increment count by 1.)
+
+#include <iostream>
+using namespace std;
+int main()
+{
+	int num, numSeq, count = 1, max = 0;
+	cout << "Enter numbers: ";
+	cin >> num;
+	max = num;
+	
+	do{
+		cin >> numSeq;
+		if(numSeq > max)
+		{
+			max = numSeq;
+			count = 1;
+		}
+		else if(numSeq == max)
+			++count;	
+	}while(numSeq!=0);
+	
+	cout << "The largest number is " << max << endl;
+	cout << "The occurence count of the largest number is " << count << endl;
+	return 0;
+}
